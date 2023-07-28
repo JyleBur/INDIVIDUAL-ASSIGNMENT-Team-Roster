@@ -6,7 +6,7 @@ import { useAuth } from '../utils/context/authContext';
 import { getPlayers } from '../api/playerData';
 import PlayerCard from '../components/PlayerCard';
 
-export default function Authors() {
+export default function Players() {
   const [players, setPlayers] = useState([]);
   const { user } = useAuth();
   const getAllThePlayers = () => {
