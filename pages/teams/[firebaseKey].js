@@ -2,9 +2,12 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { viewTeamDetails } from '../../api/mergedData';
+import { getTeamsByPlayer } from '../../api/teamData';
+import PlayerCard from '../../components/PlayerCard';
 
-export default function ViewBook() {
+export default function ViewTeams() {
   const [teamDetails, setTeamDetails] = useState({});
+  const [players, setTeamPlayers] = useState([]);
   const router = useRouter();
 
   // TODO: grab firebaseKey from url
@@ -13,6 +16,7 @@ export default function ViewBook() {
   // TODO: make call to API layer to get the data
   useEffect(() => {
     viewTeamDetails(firebaseKey).then(setTeamDetails);
+    getTeamsByPlayer(firebaseKey).then(setTeamPlayers);
   }, [firebaseKey]);
 
   return (
@@ -26,6 +30,13 @@ export default function ViewBook() {
         {teamDetails.favorite ? 'Favorited 🤍' : ''}
         <p>{teamDetails.description || ''}</p>
         <hr />
+      </div>
+      <div className="w-100 border-bottom pb-3">
+        <div className="d-flex flex-wrap">
+          {players.map((player) => (
+            <PlayerCard key={player.firebaseKey} playerObj={player} onUpdate={players} />
+          ))}
+        </div>
       </div>
     </div>
   );
