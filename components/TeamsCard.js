@@ -13,7 +13,7 @@ function TeamsCard({ teamsObj, onUpdate }) {
   };
 
   return (
-    <Card style={{ width: '18rem', margin: '10px' }}>
+    <Card className="player-card" style={{ width: '18rem', margin: '10px' }}>
       <Card.Img variant="top" src={teamsObj.image} alt={teamsObj.team_name} style={{ height: '400px' }} />
       <Card.Body>
         <Card.Title>
@@ -21,13 +21,13 @@ function TeamsCard({ teamsObj, onUpdate }) {
         </Card.Title>
         <Card.Text>Location: {teamsObj.location}</Card.Text>
         <p className="card-text bold">{teamsObj.favorite}</p>
-        {/* DYNAMIC LINK TO VIEW THE AUTHOR DETAILS  */}
+        {/* DYNAMIC LINK TO VIEW THE TEAM DETAILS  */}
         <Link href={`/teams/${teamsObj.firebaseKey}`} passHref>
           <Button variant="primary" className="m-2">
             VIEW
           </Button>
         </Link>
-        {/* DYNAMIC LINK TO EDIT THE AUTHOR DETAILS  */}
+        {/* DYNAMIC LINK TO EDIT THE TEAM DETAILS  */}
         <Link href={`/teams/edit/${teamsObj.firebaseKey}`} passHref>
           <Button variant="info">EDIT</Button>
         </Link>

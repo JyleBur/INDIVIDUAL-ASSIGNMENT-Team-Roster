@@ -20,3 +20,7 @@ a {
 body {
   background-color: #484e4e;
 }
+
+.player-card:hover {
+  transform: scale(1.05);
+}
