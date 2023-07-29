@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { viewPlayerDetails } from '../../api/mergedData';
 
-export default function ViewAuthor() {
+export default function ViewPlayers() {
   const [playerDetails, setPlayerDetails] = useState({});
   const router = useRouter();
 

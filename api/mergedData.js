@@ -1,3 +1,4 @@
+/* eslint-disable implicit-arrow-linebreak */
 import { getSinglePlayer, deleteSinglePlayer } from './playerData';
 import { getSingleTeam, deleteTeam, getTeamsByPlayer } from './teamData';
 

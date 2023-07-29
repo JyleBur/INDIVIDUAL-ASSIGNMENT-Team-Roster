@@ -29,12 +29,11 @@ export default function ViewTeams() {
         <h5>{teamDetails.team_name}</h5>
         {teamDetails.favorite ? 'Favorited 🤍' : ''}
         <p>{teamDetails.description || ''}</p>
-        <hr />
       </div>
       <div className="w-100 border-bottom pb-3">
         <div className="d-flex flex-wrap">
           {players.map((player) => (
-            <PlayerCard key={player.firebaseKey} playerObj={player} onUpdate={players} />
+            <PlayerCard key={player.firebaseKey} playerObj={player} onUpdate={setTeamPlayers} />
           ))}
         </div>
       </div>
